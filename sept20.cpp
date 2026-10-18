@@ -40,34 +40,6 @@ template<typename T> // cout << vector<T>
 ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) cout << it << " "; return ostream; }
 
 
-// Mathematical functions
-// int GCD(int a, int b) {
-//     while (b)
-//     {
-//         a %= b;
-//         swap(a, b);
-//     }
-//     return a;
-// }
-
-// int GCD_extended(int a, int b, int &x, int &y) {
-//     x = 1, y = 0;
-//     int x1 = 0, y1 = 1, a1 = a, b1 = b;
-//     while (b1)
-//     {
-//         int q = a1 / b1;
-//         tie(x, x1) = make_tuple(x1, x - q * x1);
-//         tie(y, y1) = make_tuple(y1, y - q * y1);
-//         tie(a1, b1) = make_tuple(b1, a1 - q * b1);
-//     }
-//     return a1;
-// }
-// int LCM(int a, int b)
-// {
-//     return ((ll)a * b) / GCD(a, b);
-// }
-
-
 void solve(int tt) {
 	int n; cin >> n; 
 	vector<int> v(n+1);
@@ -78,7 +50,7 @@ void solve(int tt) {
 
 	int dx = 1;
 	int ans = 0;
-	for(int i = 1; i< n; i <<= 1) {
+	for(int i = 1; i < n; i <<= 1) {
 		for(int j = 1; j < n + 1; j += (i << 1)) {
 			int suma = pref[j + i - 1] - pref[j - 1];
 			int sumb = pref[j + (i << 1) - 1] - pref[j + i - 1];
